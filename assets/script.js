@@ -2,7 +2,7 @@
 var cityList = $('#cities')
 var submit = $("#submit");
 var apiKey= '92da633d3d15d688dad9bffac774f506'
-var weatherUrl= 'api.openweathermap.org/data/2.5/weather?q='
+var weatherUrl= 'https://api.openweathermap.org/data/2.5/'
 
 // stuff that happens in Order of happening
 submit.on('click', weatherInfo);
@@ -22,25 +22,37 @@ function weatherInfo(event){
     console.log(inputCity)
     console.log(cleanCity)
     cityList.prepend(newCity)
-    var queryUrl = weatherUrl + cleanCity + '&units=imperial&appid='+ apiKey
+    var queryUrl = weatherUrl +'weather?q='+ cleanCity + '&units=imperial&appid='+ apiKey
     console.log(queryUrl)
     $.ajax({
         url: queryUrl,
         method:'get'
     }).then(function(response){
-        console.log('Ajax Working')
-        console.log(response)
+        console.log('Ajax Working');
+        console.log(response);
+        var date= moment(response.dt*1000);
         weatherObj ={
             city: response.name,
             wind: response.wind.speed,
             humidity: response.main.humidity,
         temp: response.main.temp,
-        date: (convertDate(response.dt))[1],
+        date: date.format(),
         icon: `http://openweathermap.org/img/w/${response.weather[0].icon}.png`,
         desc: response.weather[0].description
         }
         console.log(weatherObj)
     })
+    var queryUrl = weatherUrl +'forecast?q='+ cleanCity + '&units=imperial&appid='+ apiKey
+    $.ajax({ 
+        url: queryUrl,
+        method:'get'
+    }).then(function(response){
+        console.log('Ajax2 Working');
+        console.log(response);
+    
+    })
+
 };
+
 
   
