@@ -42,16 +42,28 @@ function weatherInfo(event){
         }
         console.log(weatherObj)
     })
-    var queryUrl = weatherUrl +'forecast?q='+ cleanCity + '&units=imperial&appid='+ apiKey
+    var queryUrl = weatherUrl +'forecast/daily?q='+ cleanCity + '&units=imperial&appid='+ '166a433c57516f51dfab1f7edaed8413'
     $.ajax({ 
         url: queryUrl,
         method:'get'
     }).then(function(response){
         console.log('Ajax2 Working');
         console.log(response);
-    
+        for (i = 1; i < response.list.length; i++) {
+            var days = response.list[i]
+            weatherObj = {
+              weather: days.weather[0].description,
+              icon: `http://openweathermap.org/img/w/days.weather[0].icon.png`,
+              minTemp: days.temp.min,
+              maxTemp: days.temp.max,
+              humidity: days.main.humidity,
+              date: moment(days.dt *1000).format(),
+            };
+            console.log(weatherObj)
+        };
+       
     })
-
+ // closes function
 };
 
 
