@@ -1,60 +1,61 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets\style.css">
-    <title>5 Days Weather</title>
-  </head>
-  <body>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/8bee116590.js" crossorigin="anonymous"></script>
+  <link rel='stylesheet' href='assets\style.css'>
+
+  <title>Weather Dashboard</title>
+</head>
+<body>
+  <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+    <span class='navbar-brand mx-auto h1'>Weather Dashboard</span>
+  </nav>
   <div class='container'>
-        <div class="row header text-center">
-        <h1>Weather Dashboard</h1>
+    <div class='row'>
+      <div class='col-md-3'>
+        <div class='card search-section'>
+          <div class='card-body'>
+            <label>Search For a City:</label>
+            <div class="input-group mb-3">
+              <input id="inputCity" type="text" class="form-control" placeholder="Orlando">
+                <div class="input-group-append">
+                  <button id='submit' class="btn btn-success" type="submit">
+                    <i id='getWeatherIcon' class="fas fa-search" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+            <div id='cities'></div>
+          </div>
         </div>
-        <div class="row">
-            <div>
-                <div class="column-sm-3">
-                    
-                        <div class="row input">
-                            <div class="form-group">
-                                <label >City Search</label>
-                                <input type="text" class="form-control" id="cityInput">
-                                <button type="button" class="btn btn-success" id='submit'>Submit</button>
-                              </div>
-                        </div>
-                        <div class="row ">
-                            <ul id='cities' >
-
-                            </ul>
-                        </div>
-                    
-                </div>
-                <div class="column-sm-9">
-                    <div>
-                        <div class="row" id='info'>
-
-                        </div>
-                        <div class="row days" id='days'>
-
-                        </div>
-                    </div>
-                </div>
+      </div>
+      <div class='col-md-9 '>
+        <div class='row'>
+          <div class='card'>
+            <div class='card-body'>
+              <h5 class='card-title' id='cityName'>City</h5>
+              <ul>
+                <li><img id='curWeathIcn'></img></li>
+                <li class='card-text' id='curTemp'>Temp:</li>
+                <li class='card-text' id='curHum'>Humidity:</li>
+                <li class='card-text' id='curWind'>Windspeed:</li>
+                <li class='card-text' id='curUv'>UV Index:</li>
+              </ul>
             </div>
-        </div>
+          </div>
+      </div>
+      <div class='row'>
+          <h2 class='card-title'>5-Day Forcast</h2>
+      </div>
+      <div class='row' id='forecast'></div>
     </div>
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
   </div>
-    <!-- Contianer closing Div -->
-  </div>
-
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js' integrity='sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=' crossorigin='anonymous'></script>
-  <script src='assets/script.js'></script>
-  </body>
+  <script src='assets\script.js'></script>
+</body>
 </html>

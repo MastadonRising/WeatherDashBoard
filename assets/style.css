@@ -1,7 +1,44 @@
-.header{
-    text-align: center;
-    background-color: cornflowerblue;
-    color: white;
-    font-family: cursive;
-    align-content: center;
-}
+  ul{ 
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li{ 
+    font-size: 8pt;
+  }
+  
+  .col { 
+    padding: 5px;
+  }
+  
+  .card {
+    width: 100%;
+    background-color: #ececec;
+  }
+  
+  
+  .forecast-card {
+    background-color: #8FCBFF;
+  }
+  
+  .search-section {
+    height: 100%;
+  }
+  
+  
+  .cityList {
+    border: solid;
+    border-width: thin;
+    margin: 5px;
+    padding-left: 2px;
+    background-color: lightgrey;
+  }
+  
+  .cityList:hover {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .container {
+    margin-top: 5px;
+  }
