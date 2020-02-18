@@ -92,7 +92,7 @@ function weatherInfo(){
               date: moment(days.dt *1000).format('MM-DD_YYYY'),
             };
             weatherArr.push(forcast);
-            console.log(forcast)
+            //console.log(forcast)
         };
        forecast(weatherArr)
     })
